@@ -1,0 +1,557 @@
+/*导入字体*/
+
+@font-face{
+	font-family: "Raphaelicons"; 
+	src: url('fonts/raphaelicons-webfont.eot') format('eot'), url('fonts/raphaelicons-webfont.svg') format('svg'), url('fonts/raphaelicons-webfont.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal; 
+}
+
+body{ 
+	background: #ddd; 
+	font-size: 15px; 
+	color: #333; 
+	overflow: hidden; 
+	-webkit-font-smooothing: antialiased; 
+	/*增加光滑度，字变清晰*/
+}
+
+li{ list-style: none; }
+
+a{ 
+	text-decoration: none; 
+	color: #09c;  
+}
+
+.clr{ 
+	width: 0; 
+	height: 0; 
+	clear: both; 
+	padding: 0; 
+	margin: 0; 
+	overflow: hidden; 
+}
+
+.st-container{ 
+	width: 100%; 
+	height: 100%; 
+	position: absolute; 
+	left: 0; 
+	top: 0;  
+}
+
+#contact{
+	color: #fff;
+	width: 220px;
+	height: 80px;
+	background: #f36;
+	position: fixed;
+	top: 10%;
+	left: 3%;
+	z-index: 100;
+	border-radius: 50px;
+	text-align: center;
+	font-size: 15px;
+	line-height: 8px;
+}
+
+#contact a{
+	position: absolute;
+	top: 30%; 
+	left: 78%;
+}
+
+#contact p{ 
+	width: 180px;
+ }
+
+.st-container > input , .st-container > a{ 
+	width: 20%; 
+	height: 40px; 
+	line-height: 40px; 
+	position: fixed; 
+	bottom: 0; 
+	cursor: pointer; 
+}
+
+.st-container > input{ 
+	opacity: 0; 
+	z-index: 1000; 
+}
+
+.st-container > a{ 
+	z-index: 10; 
+	font-weight: 500; 
+	font-size: 20px; 
+	background: #66dedc; 
+	text-align: center; 
+	color: #fff; 
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.5); 
+}
+
+#st-control-1,#st-control-1 + a{ left: 0; }
+
+#st-control-2,#st-control-2 + a{ left: 20%; }
+
+#st-control-3,#st-control-3 + a{ left: 40%; }
+
+#st-control-4,#st-control-4 + a{ left: 60%; }
+
+#st-control-5,#st-control-5 + a{ left: 80%; }
+
+.st-container input:hover + a{ background: #52b4af; }
+
+.st-container input:checked + a{ background: #069; }
+
+.st-container input:checked + a:after{ 
+	content: ""; 
+	height: 0; 
+	width: 0; 
+	overflow: hidden; 
+	border: 20px solid transparent; 
+	border-bottom-color: #069; 
+	position: absolute; 
+	bottom: 100%; 
+	left: 50%; 
+	margin-left: -20px; 
+}
+
+/*页面*/
+
+.st-scroll, .st-panel{ 
+	width: 100%; 
+	height: 100%; 
+	position: relative; 
+}
+
+.st-scroll{ 
+	left: 0; 
+	top: 0; 
+	-webkit-transform: translate3d(0,0,0); 
+	-moz-transform: translate3d(0,0,0); 
+	-ms-transform: translate3d(0,0,0); 
+	-o-transform: translate3d(0,0,0); 
+	transform: translate3d(0,0,0); 
+	/*3d可开启移动端GPU加速*/ 
+	-webkit-backface-visibility: hidden; 
+	-webkit-transition: all 0.6s ease-in-out; 
+	-ms-transition: all 0.6s ease-in-out; 
+	-o-transition: all 0.6s ease-in-out; 
+	-moz-transition: all 0.6s ease-in-out;
+}
+
+.st-panel{ 
+	background: #1EBBA0; 
+	overflow: hidden; }
+
+#st-control-1:checked ~ .st-scroll{ 
+	-webkit-transform: translateY(0%);  
+	-moz-transform: translateY(0%); 
+	-ms-transform: translateY(0%); 
+	-o-transform: translateY(0%); 
+	transform: translateY(0%);
+}
+
+#st-control-2:checked ~ .st-scroll{ 
+	-webkit-transform: translateY(-100%);  
+	-moz-transform: translateY(-100%); 
+	-ms-transform: translateY(-100%); 
+	-o-transform: translateY(-100%); 
+	transform: translateY(-100%);
+}
+
+#st-control-3:checked ~ .st-scroll{ 
+	-webkit-transform: translateY(-200%);  
+	-moz-transform: translateY(-200%); 
+	-ms-transform: translateY(-200%); 
+	-o-transform: translateY(-200%); 
+	transform: translateY(-200%);
+}
+
+#st-control-4:checked ~ .st-scroll{ 
+	-webkit-transform: translateY(-300%);  
+	-moz-transform: translateY(-300%); 
+	-ms-transform: translateY(-300%); 
+	-o-transform: translateY(-300%); 
+	transform: translateY(-300%);
+}
+
+#st-control-5:checked ~ .st-scroll{ 
+	-webkit-transform: translateY(-400%);  
+	-moz-transform: translateY(-400%); 
+	-ms-transform: translateY(-400%); 
+	-o-transform: translateY(-400%); 
+	transform: translateY(-400%);
+}
+
+/*页面里的内容*/
+
+.st-desc{ 
+	width: 200px; 
+	height: 200px; 
+	background: #fff; 
+	position: absolute; 
+	left: 50%; top: 0; 
+	margin-left: -100px; 
+	-webkit-transform: translateY(-50%) rotate(45deg); 
+	-moz-transform: translateY(-50%) rotate(45deg); 
+	-ms-transform: translateY(-50%) rotate(45deg); 
+	-o-transform: translateY(-50%) rotate(45deg); 
+	transform: translateY(-50%) rotate(45deg); 
+}
+[data-icon]:after{ 
+	content: attr(data-icon); 
+	width: 200px; 
+	height: 200px; 
+	color: #1EBBA0; 
+	font-size: 90px; 
+	text-align: center; 
+	margin: -100px 0 0 -100px; 
+	line-height: 200px; 
+	position: absolute; 
+	left: 70%; 
+	top: 70%; 
+	font-family: "Raphaelicons"; 
+	animation: zhuan 2s  linear infinite;
+	-webkit-animation: zhuan 2s  linear infinite;
+	-moz-animation: zhuan 2s  linear infinite;
+	-ms-animation: zhuan 2s  linear infinite;
+	-o-animation: zhuan 2s  linear infinite;       
+}
+
+@-webkit-keyframes zhuan{
+	from{
+		-webkit-transform: rotate(0px);
+
+	}
+	to{
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-o-keyframes zhuan{
+	from{
+		-o-transform: rotate(0px);
+
+	}
+	to{
+		-o-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes zhuan{
+	from{
+		-moz-transform: rotate(0px);
+
+	}
+	to{
+		-moz-transform: rotate(360deg);
+	}
+}
+@-ms-keyframes zhuan{
+	from{
+		-ms-transform: rotate(0px);
+
+	}
+	to{
+		-ms-transform: rotate(360deg);
+	}
+}
+@keyframes zhuan{
+	from{
+		transform: rotate(0px);
+
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+.st-panel h2{ 
+	color: #fff; 
+	font-size: 54px; 
+	line-height: 50px; 
+	text-align: center; 
+	font-weight: 700; 
+	width: 80%; 
+	position: absolute; 
+	left: 10%; 
+	top: 22%; 
+	text-shadow: 2px 2px 2px rgba(0,0,0,0.5); 
+	-webkit-backface-visibility: hidden; 
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden; 
+	backface-visibility: hidden; 
+	/*背向屏幕不可见*/
+}
+
+.st-panel .st-content{ 
+	color: #fff; 
+	font-size: 20px; 
+	line-height: 20px; 
+	text-align: center; 
+	font-weight: 400; 
+	width: 68%; 
+	position: absolute; 
+	left: 16%; 
+	top: 40%; 
+	-webkit-backface-visibility: hidden; 
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden; 
+	backface-visibility: hidden; 
+	/*背向屏幕不可见*/
+}
+
+.st-panel .st-content p span{
+	display: inline-block;
+	text-align: center;
+	width: 110px;
+}
+
+.st-panel .st-content p .aft{
+		color: #f36;
+		font-family: "Raphaelicons";		
+	}
+
+/*当第一页被选中时，隐藏联系方式的小标签*/
+#st-control-1:checked ~ #contact{ display: none; }
+
+/*页面内容的css3动画*/
+
+/*#st-control-1:checked ~ .st-scroll #st-panel-1 .me,*/
+
+#st-control-2:checked ~ .st-scroll #st-panel-2 h2,
+
+#st-control-3:checked ~ .st-scroll #st-panel-3 h2,
+
+#st-control-4:checked ~ .st-scroll #st-panel-4 h2,
+
+#st-control-5:checked ~ .st-scroll #st-panel-5 h2{
+	animation: moveRight 0.5s  ease-in-out 0.5s backwards;
+	-webkit-animation: moveRight 0.6s  ease-in-out 0.5s backwards;
+	-moz-animation: moveRight 0.6s  ease-in-out 0.5s backwards;
+	-ms-animation: moveRight 0.6s  ease-in-out 0.5s backwards;
+	-o-animation: moveRight 0.6s  ease-in-out 0.5s backwards;       /*初始点为0%*/
+}
+
+@-webkit-keyframes moveRight{
+	0%{
+		-webkit-transform: translateX(-150px);
+		opacity: 0;	
+	}
+	80%{
+		-webkit-transform: translateX(30px);
+		opacity: 0.7;
+	}
+	100%{
+		-webkit-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@-ms-keyframes moveRight{
+	0%{
+		-ms-transform: translateX(-150px);
+		opacity: 0;	
+	}
+	80%{
+		-ms-transform: translateX(30px);
+		opacity: 0.7;
+	}
+	100%{
+		-ms-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@-o-keyframes moveRight{
+	0%{
+		-o-transform: translateX(-150px);
+		opacity: 0;	
+	}
+	80%{
+		-o-transform: translateX(30px);
+		opacity: 0.7;
+	}
+	100%{
+		-o-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@-moz-keyframes moveRight{
+	0%{
+		-moz-transform: translateX(-150px);
+		opacity: 0;	
+	}
+	80%{
+		-moz-transform: translateX(30px);
+		opacity: 0.7;
+	}
+	100%{
+		-moz-transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@keyframes moveRight{
+	0%{
+		transform: translateX(-150px);
+		opacity: 0;	
+	}
+	80%{
+		transform: translateX(30px);
+		opacity: 0.7;
+
+	}
+	100%{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+
+#st-control-1:checked ~ .st-scroll #st-panel-1 .st-content,
+
+#st-control-2:checked ~ .st-scroll #st-panel-2 .st-content,
+
+#st-control-3:checked ~ .st-scroll #st-panel-3 .st-content,
+
+#st-control-4:checked ~ .st-scroll #st-panel-4 .st-content,
+
+#st-control-5:checked ~ .st-scroll #st-panel-5 .st-content{
+	animation: show 2s  linear 1.3s backwards;
+	-webkit-animation: show 3s  linear 1.3s backwards;
+	-moz-animation: show 3s  linear 1.3s backwards;
+	-ms-animation: show 3s  linear 1.3s backwards;
+	-o-animation: show 3s  linear 1.3s backwards;       /*初始点为0%*/
+}
+
+@-webkit-keyframes show{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+@-ms-keyframes show{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+@-o-keyframes show{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+@-moz-keyframes show{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+@keyframes show{
+	from{ opacity: 0; }
+	to{ opacity: 1; }
+}
+
+/*交叉着色*/
+
+.st-color{ background: #fff; }
+
+.st-color .st-desc{ background: #1EBBA0; }
+
+.st-color [data-icon]:after{ color: #fff; }
+
+.st-color h2{ color: #000; }
+.st-color .st-content{ color: #000; }
+
+/*响应不同设备*/
+
+@media screen and (max-width: 550px){
+	.st-panel h2{
+		font-size: 40px;
+	}
+
+	#contact{
+		width: 160px;
+		height: 50px;
+		text-align: center;
+		border-radius: 30px;
+		position: fixed;
+		left: 50%;
+		top: 82%;
+		transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+
+	}
+
+	#contact p{ 
+		line-height: 1px;
+		font-size: 10px;
+		width: 120px;
+		
+ 	}
+
+ 	#contact a{
+	position: absolute;
+	top: 20%; 
+	left: 77%;
+	}
+
+	.st-panel .st-content{
+		width: 90%;
+		left: 50%;
+		transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		top: 35%;
+		margin-top: 0;
+		font-size: 16px;
+	}
+
+	.st-container > a{
+		font-size: 11px;
+	}
+
+	.st-panel .st-content p span{
+	width: 70px;
+}
+}
+
+@media screen and (max-width: 600px){
+	#st-panel-3 .st-content{ 
+	font-size: 10px;
+	line-height: 13px;	
+	}
+}
+
+@media screen and (max-width: 670px){
+	#st-panel-5 .st-content p{
+	font-size: 20px;
+	}
+}
+
+@media screen and (max-width: 399px){
+	#st-panel-5 .st-content p{
+	font-size: 15px;
+	}
+}
+
+#st-panel-1 .me{
+	background: url(../me.jpg)no-repeat center;
+	width: 120px;
+	height: 120px;
+	border-radius: 120px;
+	position: absolute; 
+	left: 50%; 
+	top: 22%; 
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+	transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+}
